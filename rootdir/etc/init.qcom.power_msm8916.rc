@@ -53,6 +53,9 @@ on enable-low-power
     write /sys/kernel/state_helper/batt_level_cri 1
     write /sys/kernel/state_helper/batt_level_eco 15
 
+    # Set RPS mask
+    write /sys/class/net/rmnet0/queues/rx-0/rps_cpus 2
+
     # Update foreground and background cpusets
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
