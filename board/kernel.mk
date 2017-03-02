@@ -10,7 +10,12 @@ BOARD_RAMDISK_OFFSET     := 0x02000000
 
 ENABLE_CPUSETS := true
 
+ifeq ($(PRODUCT_NAME),XOS_crackling)
+TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916-crackling
+else
 TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916
+endif
+
 ifneq ($(FORCE_32_BIT),true)
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 endif
